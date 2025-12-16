@@ -1,16 +1,14 @@
-import viteLogo from "/vite.svg";
+import { ErrorBoundary } from "@/components/common";
+import { MealPlanProvider } from "@/context/MealPlanContext";
+import HomePage from "@/pages/HomePage";
 
 function App() {
   return (
-    <>
-      <div className="bg-red-500 border-amber-200 rounded-2xl">
-        <div>
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-        </div>
-      </div>
-    </>
+    <ErrorBoundary>
+      <MealPlanProvider>
+        <HomePage />
+      </MealPlanProvider>
+    </ErrorBoundary>
   );
 }
 
