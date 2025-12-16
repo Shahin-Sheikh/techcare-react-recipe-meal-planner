@@ -279,26 +279,28 @@ I chose React's Context API over external state management libraries (Redux, Zus
 
 ---
 
-## Time Breakdown
+## ⏱️ Time Breakdown
+
+## ⏱️ Time Breakdown
 
 | Task                                      | Time Spent   |
 | ----------------------------------------- | ------------ |
-| Project setup & configuration             | 3 hours      |
-| Understanding requirements & planning     | 2 hour       |
+| Project setup & configuration             | 2 hours      |
+| Understanding requirements & planning     | 1.5 hours    |
 | API integration & type definitions        | 2 hours      |
-| Custom hooks implementation               | 4 hours      |
-| State management (Context + localStorage) | 2 hours      |
-| UI component setup (Shadcn)               | 2 hours      |
-| Recipe search & filter feature            | 3 hours      |
-| Recipe details modal                      | 2 hours      |
-| Weekly meal plan feature                  | 2.5 hours    |
-| Shopping list with merging logic          | 2 hours      |
-| Responsive design implementation          | 3.5 hours    |
+| Custom hooks implementation               | 3 hours      |
+| State management (Context + localStorage) | 1.5 hours    |
+| UI component setup (Shadcn)               | 1.5 hours    |
+| Recipe search & filter feature            | 2.5 hours    |
+| Recipe details modal                      | 1.5 hours    |
+| Weekly meal plan feature                  | 2 hours      |
+| Shopping list with merging logic          | 1.5 hours    |
+| Responsive design implementation          | 2.5 hours    |
 | Toast notifications integration           | 1 hour       |
-| Error handling & edge cases               | 1.5 hours    |
-| UI/UX refinements & polish                | 1.5 hours    |
-| Testing & bug fixes                       | 1 hour       |
-| **Total**                                 | **33 hours** |
+| Error handling & edge cases               | 1 hour       |
+| UI/UX refinements & polish                | 1 hour       |
+| Testing & bug fixes                       | 0.5 hour     |
+| **Total**                                 | **22 hours** |
 
 ---
 
