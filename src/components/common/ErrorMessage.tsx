@@ -16,7 +16,7 @@ export function ErrorMessage({
       <Card className="max-w-md w-full border-red-200">
         <CardContent className="p-6">
           <div className="flex items-start">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <AlertCircle className="h-6 w-6 text-red-600" />
             </div>
             <div className="ml-3 flex-1">

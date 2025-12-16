@@ -78,6 +78,7 @@ function saveMealPlanToStorage(mealPlan: MealPlan): void {
 }
 
 // Create context
+// eslint-disable-next-line react-refresh/only-export-components
 export const MealPlanContext = createContext<UseMealPlanReturn | undefined>(
   undefined
 );

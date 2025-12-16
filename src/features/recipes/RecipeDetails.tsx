@@ -11,8 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Youtube } from "lucide-react";
-import { useMealPlan } from "@/hooks/useMealPlan";
 import { useRecipeDetails } from "@/hooks/useRecipeDetails";
+import { useMealPlan } from "@/hooks/useMealPlan";
 
 interface RecipeDetailsModalProps {
   recipeId: string;

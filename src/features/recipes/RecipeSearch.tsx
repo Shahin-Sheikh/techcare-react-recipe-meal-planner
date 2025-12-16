@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { getCategories } from "@/api/mealdb";
 import { RecipeCard } from "./RecipeCard";
 import { ErrorMessage, EmptyState } from "@/components/common";
@@ -37,7 +37,7 @@ export function RecipeSearch({
       try {
         const data = await getCategories();
         setCategories(data);
-      } catch (err) {
+      } catch {
         setCategoriesError("Failed to load categories");
       }
     }
@@ -45,23 +45,27 @@ export function RecipeSearch({
   }, []);
 
   // Debounced search function
-  const debouncedSearch = useCallback(
-    debounce((query: string) => {
-      searchRecipes(query);
-    }, 500),
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((query) => {
+        searchRecipes(query as string);
+      }, 500),
     [searchRecipes]
   );
 
   // Handle search input change
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    setSelectedCategory("all");
+  const handleSearchChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const query = e.target.value;
+      setSearchQuery(query);
+      setSelectedCategory("all");
 
-    if (query.trim()) {
-      debouncedSearch(query);
-    }
-  };
+      if (query.trim()) {
+        debouncedSearch(query);
+      }
+    },
+    [debouncedSearch]
+  );
 
   // Handle category change
   const handleCategoryChange = (category: string) => {
