@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MealPlanView, ShoppingList } from "@/features/meal-plans";
 import { RecipeDetailsModal, RecipeSearch } from "@/features/recipes";
-import { Calendar, ChefHat, Home, Search, ShoppingCart } from "lucide-react";
+import { Calendar, ChefHat, Search, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 
 type View = "search" | "mealplan" | "shopping";
@@ -24,11 +24,12 @@ export default function HomePage() {
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center cursor-pointer">
-              <Home
-                className="h-8 w-8 text-tale-600"
-                onClick={() => setCurrentView("search")}
-              />
+            <div
+              className="flex items-center cursor-pointer"
+              onClick={() => setCurrentView("search")}
+            >
+              <ChefHat className="h-8 w-8 text-tale-600" />
+              <span className="ml-2 font-bold text-xl">Recipe Planner</span>
             </div>
             <nav className="flex space-x-1">
               <Button
