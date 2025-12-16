@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { getRecipeDetails as apiGetRecipeDetails } from "@/api/mealdb";
 import type { RecipeDetails, UseRecipeDetailsReturn } from "@/types";
+import { toast } from "sonner";
 
 /**
  * Custom hook for fetching recipe details by ID
@@ -30,7 +31,10 @@ export function useRecipeDetails(): UseRecipeDetailsReturn {
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Failed to fetch recipe details";
-      setError(errorMessage);
+      toast.error("Recipe Error", {
+        description: errorMessage,
+      });
+      setError("Something went wrong");
       setRecipe(null);
     } finally {
       setLoading(false);

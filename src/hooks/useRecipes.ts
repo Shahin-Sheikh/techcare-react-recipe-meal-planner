@@ -4,6 +4,7 @@ import {
   filterByCategory as apiFilterByCategory,
 } from "@/api/mealdb";
 import type { RecipeBasic, UseRecipesReturn } from "@/types";
+import { toast } from "sonner";
 
 /**
  * Custom hook for searching and filtering recipes
@@ -29,7 +30,10 @@ export function useRecipes(): UseRecipesReturn {
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Failed to search recipes";
-      setError(errorMessage);
+      toast.error("Search Error", {
+        description: errorMessage,
+      });
+      setError("Failed to load recipes");
       setRecipes([]);
     } finally {
       setLoading(false);
@@ -51,7 +55,10 @@ export function useRecipes(): UseRecipesReturn {
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Failed to filter recipes";
-      setError(errorMessage);
+      toast.error("Filter Error", {
+        description: errorMessage,
+      });
+      setError("Failed to load recipes");
       setRecipes([]);
     } finally {
       setLoading(false);
