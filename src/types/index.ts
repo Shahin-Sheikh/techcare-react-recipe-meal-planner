@@ -8,7 +8,7 @@ export interface Recipe {
   strMealThumb: string;
   strTags: string | null;
   strYoutube: string;
-  [key: string]: string | null; // For dynamic ingredient/measure fields
+  [key: string]: string | null;
 }
 
 // Transformed Recipe for internal use

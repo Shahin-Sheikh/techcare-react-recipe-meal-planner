@@ -31,17 +31,14 @@ export function ShoppingList(): React.JSX.Element {
     setLoading(true);
     setError(null);
 
+    // Fetch all recipe details in parallel using Promise.all
     try {
-      // Fetch all recipe details in parallel using Promise.all
       const recipes = await getMultipleRecipeDetails(recipeIds);
 
-      // Collect all ingredients
       const allIngredients = recipes.flatMap((recipe) => recipe.ingredients);
 
-      // Merge duplicate ingredients
       const mergedIngredients = mergeIngredients(allIngredients);
 
-      // Create shopping list items
       const items: ShoppingListItem[] = mergedIngredients.map(
         (ingredient, index) => ({
           id: `${index}-${ingredient.name}`,
@@ -61,12 +58,10 @@ export function ShoppingList(): React.JSX.Element {
     }
   }, [mealPlan]);
 
-  // Generate shopping list when meal plan changes
   useEffect(() => {
     generateShoppingList();
   }, [generateShoppingList]);
 
-  // Toggle item purchased status
   const togglePurchased = (id: string) => {
     setShoppingList((prev) =>
       prev.map((item) =>
@@ -75,7 +70,6 @@ export function ShoppingList(): React.JSX.Element {
     );
   };
 
-  // Clear completed items
   const clearCompleted = () => {
     setShoppingList((prev) => prev.filter((item) => !item.purchased));
   };
@@ -109,7 +103,6 @@ export function ShoppingList(): React.JSX.Element {
 
       {!loading && !error && shoppingList.length > 0 && (
         <div>
-          {/* Progress Bar */}
           <div>
             <div className="pt-6">
               <div className="flex items-center justify-between mb-2">
@@ -134,7 +127,6 @@ export function ShoppingList(): React.JSX.Element {
             </div>
           </div>
 
-          {/* Shopping List Items */}
           <div className="space-y-2">
             {shoppingList.map((item) => (
               <Card

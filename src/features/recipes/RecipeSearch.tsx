@@ -31,7 +31,6 @@ export function RecipeSearch({
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [categoriesError, setCategoriesError] = useState<string | null>(null);
 
-  // Load categories on mount
   useEffect(() => {
     async function loadCategories() {
       try {
@@ -44,7 +43,6 @@ export function RecipeSearch({
     loadCategories();
   }, []);
 
-  // Debounced search function
   const debouncedSearch = useMemo(
     () =>
       debounce((query) => {
@@ -53,7 +51,6 @@ export function RecipeSearch({
     [searchRecipes]
   );
 
-  // Handle search input change
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const query = e.target.value;
@@ -67,14 +64,12 @@ export function RecipeSearch({
     [debouncedSearch]
   );
 
-  // Handle category change
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setSearchQuery("");
     filterByCategory(category);
   };
 
-  // Handle retry
   const handleRetry = () => {
     if (searchQuery) {
       searchRecipes(searchQuery);
@@ -85,10 +80,8 @@ export function RecipeSearch({
 
   return (
     <div className="w-full">
-      {/* Search and Filter Controls */}
       <div className="mb-8 space-y-4">
         <div className="flex flex-col md:flex-row gap-4">
-          {/* Search Input */}
           <div className="flex-1">
             <label
               htmlFor="search"
@@ -105,7 +98,6 @@ export function RecipeSearch({
             />
           </div>
 
-          {/* Category Filter */}
           <div className="w-full md:w-64">
             <label
               htmlFor="category"
@@ -138,7 +130,6 @@ export function RecipeSearch({
           </div>
         </div>
 
-        {/* Active filter indicator */}
         {(searchQuery || selectedCategory !== "all") && (
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <span>Active filter:</span>
@@ -152,7 +143,6 @@ export function RecipeSearch({
         )}
       </div>
 
-      {/* Results */}
       {loading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Array.from({ length: 6 }).map((_, index) => (

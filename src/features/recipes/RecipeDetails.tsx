@@ -42,7 +42,6 @@ export function RecipeDetailsModal({
     }
   };
 
-  // Close on Escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -80,7 +79,6 @@ export function RecipeDetailsModal({
 
         {!loading && !error && recipe && (
           <div className="overflow-y-auto max-h-[92vh]">
-            {/* Hero Image Section */}
             <div className="relative h-80 w-full overflow-hidden">
               <img
                 src={recipe.thumbnail}
@@ -106,9 +104,7 @@ export function RecipeDetailsModal({
               </div>
             </div>
 
-            {/* Content Section */}
             <div className="px-8 py-6">
-              {/* Tags */}
               {recipe.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-6">
                   {recipe.tags.map((tag) => (
@@ -123,7 +119,6 @@ export function RecipeDetailsModal({
                 </div>
               )}
 
-              {/* Action Button */}
               <Button
                 onClick={() => setShowAddToMeal(!showAddToMeal)}
                 className="w-full sm:w-auto mb-6 bg-[#7BF1A8] hover:bg-[#67D890] text-gray-900 shadow-md hover:shadow-lg transition-all cursor-pointer"
@@ -133,7 +128,6 @@ export function RecipeDetailsModal({
                 Add to Meal Plan
               </Button>
 
-              {/* Add to Meal Plan Section */}
               {showAddToMeal && (
                 <div className="mb-8 p-6 bg-linear-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100 shadow-sm">
                   <h3 className="text-lg font-semibold mb-4 text-gray-900 flex items-center gap-2">
@@ -189,7 +183,6 @@ export function RecipeDetailsModal({
                 </div>
               )}
 
-              {/* Ingredients */}
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
                   <div className="w-1 h-6 bg-blue-600 rounded-full" />
@@ -220,7 +213,6 @@ export function RecipeDetailsModal({
                 </div>
               </div>
 
-              {/* Instructions */}
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
                   <div className="w-1 h-6 bg-blue-600 rounded-full" />
@@ -243,7 +235,6 @@ export function RecipeDetailsModal({
                 </div>
               </div>
 
-              {/* YouTube Link */}
               {recipe.youtubeUrl && (
                 <div className="pb-2">
                   <Button
@@ -256,7 +247,7 @@ export function RecipeDetailsModal({
                       href={recipe.youtubeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
+                      className="text-white flex items-center justify-center gap-2"
                     >
                       <Youtube className="h-5 w-5" />
                       Watch Video Tutorial

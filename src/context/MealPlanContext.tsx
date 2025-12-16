@@ -9,12 +9,10 @@ import { createContext, useReducer, useEffect, type ReactNode } from "react";
 
 const STORAGE_KEY = "recipe-meal-plan";
 
-// Initial state
 const initialState: MealPlanState = {
   mealPlan: {},
 };
 
-// Reducer function
 function mealPlanReducer(
   state: MealPlanState,
   action: MealPlanAction
@@ -83,12 +81,10 @@ export const MealPlanContext = createContext<UseMealPlanReturn | undefined>(
   undefined
 );
 
-// Provider props
 interface MealPlanProviderProps {
   children: ReactNode;
 }
 
-// Provider component
 export function MealPlanProvider({
   children,
 }: MealPlanProviderProps): React.JSX.Element {
@@ -109,7 +105,6 @@ export function MealPlanProvider({
     saveMealPlanToStorage(state.mealPlan);
   }, [state.mealPlan]);
 
-  // Context value with actions
   const value: UseMealPlanReturn = {
     mealPlan: state.mealPlan,
     addMeal: (date: string, recipe: RecipeDetails) => {
