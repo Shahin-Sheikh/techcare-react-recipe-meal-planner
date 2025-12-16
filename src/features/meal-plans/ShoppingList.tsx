@@ -116,7 +116,7 @@ export function ShoppingList(): React.JSX.Element {
                     size="sm"
                     className="text-red-600 hover:text-red-700 border rounded-md"
                   >
-                    Complete
+                    Clear
                   </Button>
                 )}
               </div>
