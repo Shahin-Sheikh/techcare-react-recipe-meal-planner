@@ -219,19 +219,22 @@ export function RecipeDetailsModal({
                   Instructions
                 </h3>
                 <div className="space-y-4 bg-linear-to-br from-gray-50 to-gray-100 p-6 rounded-xl border border-gray-200">
-                  {recipe.instructions.split("\n").map(
-                    (paragraph, index) =>
-                      paragraph.trim() && (
-                        <div key={index} className="flex gap-4">
-                          <div className="shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold text-sm">
-                            {index + 1}
-                          </div>
-                          <p className="text-gray-700 leading-relaxed pt-1 flex-1">
-                            {paragraph}
-                          </p>
+                  {recipe.instructions
+                    .split(/\r\n|\r|\n/)
+                    .map((paragraph) => {
+                      return paragraph.replace(/^step\s*\d+\s*/i, "").trim();
+                    })
+                    .filter((paragraph) => paragraph.length > 0)
+                    .map((paragraph, index) => (
+                      <div key={index} className="flex gap-4">
+                        <div className="shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold text-sm">
+                          {index + 1}
                         </div>
-                      )
-                  )}
+                        <p className="text-gray-700 leading-relaxed pt-1 flex-1">
+                          {paragraph}
+                        </p>
+                      </div>
+                    ))}
                 </div>
               </div>
 
