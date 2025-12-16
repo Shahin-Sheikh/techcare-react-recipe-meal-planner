@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { useRecipeDetails } from "./hooks/useRecipeDetails";
-import { useMealPlan } from "@/features/meal-plans";
 import { ErrorMessage } from "@/components/common";
 import { getWeekDates, formatDate, getDisplayDate } from "@/utils/helpers";
 import {
@@ -13,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Youtube } from "lucide-react";
+import { useMealPlan } from "@/hooks/useMealPlan";
+import { useRecipeDetails } from "@/hooks/useRecipeDetails";
 
 interface RecipeDetailsModalProps {
   recipeId: string;

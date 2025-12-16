@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { useRecipes } from "./hooks/useRecipes";
 import { getCategories } from "@/api/mealdb";
 import { RecipeCard } from "./RecipeCard";
 import { ErrorMessage, EmptyState } from "@/components/common";
@@ -16,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Search, ChefHat } from "lucide-react";
 import type { Category } from "@/types";
+import { useRecipes } from "@/hooks/useRecipes";
 
 interface RecipeSearchProps {
   onRecipeClick: (id: string) => void;
