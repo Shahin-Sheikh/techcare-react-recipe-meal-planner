@@ -16,7 +16,7 @@ export function RecipeCard({
       onClick={onClick}
       className="cursor-pointer transform transition-all duration-200 hover:scale-105 hover:shadow-xl overflow-hidden"
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-40 sm:h-48 overflow-hidden">
         <img
           src={recipe.thumbnail}
           alt={recipe.name}
@@ -24,16 +24,21 @@ export function RecipeCard({
           loading="lazy"
         />
         <div className="absolute top-2 right-2">
-          <Badge variant="secondary" className="bg-white/90 backdrop-blur-sm">
+          <Badge
+            variant="secondary"
+            className="bg-white/90 backdrop-blur-sm text-xs"
+          >
             {recipe.category}
           </Badge>
         </div>
       </div>
-      <CardContent className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800 line-clamp-2 mb-1">
+      <CardContent className="p-3 sm:p-4">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-800 line-clamp-2 mb-1">
           {recipe.name}
         </h3>
-        <p className="text-sm text-gray-600">Click to view details</p>
+        <p className="text-xs sm:text-sm text-gray-600">
+          Click to view details
+        </p>
       </CardContent>
     </Card>
   );

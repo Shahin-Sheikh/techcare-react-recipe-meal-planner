@@ -80,8 +80,8 @@ export function RecipeSearch({
 
   return (
     <div className="w-full">
-      <div className="mb-8 space-y-4">
-        <div className="flex flex-col md:flex-row gap-4">
+      <div className="mb-6 sm:mb-8 space-y-3 sm:space-y-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <div className="flex-1">
             <label
               htmlFor="search"
@@ -95,10 +95,11 @@ export function RecipeSearch({
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search for recipes..."
+              className="w-full"
             />
           </div>
 
-          <div className="w-full md:w-64">
+          <div className="w-full sm:w-56 md:w-64">
             <label
               htmlFor="category"
               className="block text-sm font-medium text-gray-700 mb-2"
@@ -109,7 +110,7 @@ export function RecipeSearch({
               value={selectedCategory}
               onValueChange={handleCategoryChange}
             >
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
@@ -131,24 +132,28 @@ export function RecipeSearch({
         </div>
 
         {(searchQuery || selectedCategory !== "all") && (
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <span>Active filter:</span>
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-600">
+            <span className="font-medium">Active filter:</span>
             {searchQuery && (
-              <Badge variant="secondary">Search: "{searchQuery}"</Badge>
+              <Badge variant="secondary" className="text-xs">
+                Search: "{searchQuery}"
+              </Badge>
             )}
             {selectedCategory !== "all" && (
-              <Badge variant="secondary">Category: {selectedCategory}</Badge>
+              <Badge variant="secondary" className="text-xs">
+                Category: {selectedCategory}
+              </Badge>
             )}
           </div>
         )}
       </div>
 
       {loading && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
           {Array.from({ length: 6 }).map((_, index) => (
             <div key={index} className="space-y-3">
-              <Skeleton className="h-48 w-full" />
-              <Skeleton className="h-6 w-3/4" />
+              <Skeleton className="h-40 sm:h-48 w-full" />
+              <Skeleton className="h-5 sm:h-6 w-3/4" />
               <Skeleton className="h-4 w-1/2" />
             </div>
           ))}
@@ -186,10 +191,10 @@ export function RecipeSearch({
 
       {!loading && !error && recipes.length > 0 && (
         <div>
-          <p className="text-sm text-gray-600 mb-4">
+          <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
             Found {recipes.length} recipe{recipes.length !== 1 ? "s" : ""}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
             {recipes.map((recipe) => (
               <RecipeCard
                 key={recipe.id}

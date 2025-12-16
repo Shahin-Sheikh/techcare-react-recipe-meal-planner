@@ -79,8 +79,10 @@ export function ShoppingList(): React.JSX.Element {
 
   return (
     <div className="w-full">
-      <div className="mb-6">
-        <h2 className="text-3xl font-bold text-gray-900">Shopping List</h2>
+      <div className="mb-4 sm:mb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+          Shopping List
+        </h2>
       </div>
 
       {loading && (
@@ -104,9 +106,9 @@ export function ShoppingList(): React.JSX.Element {
       {!loading && !error && shoppingList.length > 0 && (
         <div>
           <div>
-            <div className="pt-6">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-gray-700">
+            <div className="pt-4 sm:pt-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 mb-3">
+                <span className="text-xs sm:text-sm font-medium text-gray-700">
                   Progress: {purchasedCount} of {totalCount} items
                 </span>
                 {purchasedCount > 0 && (
@@ -114,15 +116,15 @@ export function ShoppingList(): React.JSX.Element {
                     onClick={clearCompleted}
                     variant="ghost"
                     size="sm"
-                    className="text-red-600 hover:text-red-700 border rounded-md"
+                    className="text-red-600 hover:text-red-700 border rounded-md w-full sm:w-auto text-xs sm:text-sm"
                   >
-                    Clear
+                    Clear Completed
                   </Button>
                 )}
               </div>
               <Progress
                 value={(purchasedCount / totalCount) * 100}
-                className="h-3"
+                className="h-2 sm:h-3"
               />
             </div>
           </div>
@@ -137,18 +139,19 @@ export function ShoppingList(): React.JSX.Element {
                     : "hover:border-blue-300"
                 }`}
               >
-                <CardContent className="flex items-center p-4">
+                <CardContent className="flex items-center p-3 sm:p-4">
                   <Checkbox
                     id={item.id}
                     checked={item.purchased}
                     onCheckedChange={() => togglePurchased(item.id)}
+                    className="shrink-0"
                   />
                   <label
                     htmlFor={item.id}
-                    className="ml-4 flex-1 cursor-pointer"
+                    className="ml-3 sm:ml-4 flex-1 cursor-pointer"
                   >
                     <span
-                      className={`font-medium ${
+                      className={`text-sm sm:text-base font-medium ${
                         item.purchased
                           ? "line-through text-gray-500"
                           : "text-gray-900"
@@ -158,7 +161,7 @@ export function ShoppingList(): React.JSX.Element {
                     </span>
                     {item.measure && (
                       <span
-                        className={`ml-2 text-sm ${
+                        className={`ml-2 text-xs sm:text-sm ${
                           item.purchased ? "text-gray-400" : "text-gray-600"
                         }`}
                       >
