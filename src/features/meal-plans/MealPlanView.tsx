@@ -82,7 +82,7 @@ export function MealPlanView({
                         onClick={() => removeMeal(dateKey)}
                         variant="destructive"
                         size="sm"
-                        className="w-full"
+                        className="w-full text-red-500 border rounded-md flex items-center justify-center"
                       >
                         Remove
                       </Button>
