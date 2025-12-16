@@ -27,7 +27,6 @@ export function MealPlanView({
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="text-3xl font-bold text-gray-900">Weekly Meal Plan</h2>
-          <p className="text-gray-600 mt-1">Plan your meals for the week</p>
         </div>
         {hasMeals && (
           <Button onClick={clearMealPlan} variant="destructive">
@@ -40,7 +39,7 @@ export function MealPlanView({
         <EmptyState
           icon={<CalendarDays className="h-16 w-16 text-gray-400" />}
           title="No meals planned yet"
-          message="Start adding recipes to your weekly meal plan. Search for recipes and click 'Add to Meal Plan' to get started!"
+          message="Search for recipes and click 'Add to Meal Plan' to get started!"
         />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">

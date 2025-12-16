@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
-import { Info, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import type { RecipeDetails, ShoppingListItem } from "@/types";
 
 export function ShoppingList(): React.JSX.Element {
@@ -87,9 +87,6 @@ export function ShoppingList(): React.JSX.Element {
     <div className="w-full">
       <div className="mb-6">
         <h2 className="text-3xl font-bold text-gray-900">Shopping List</h2>
-        <p className="text-gray-600 mt-1">
-          Automatically generated from your meal plan
-        </p>
       </div>
 
       {loading && (
@@ -106,15 +103,15 @@ export function ShoppingList(): React.JSX.Element {
         <EmptyState
           icon={<ShoppingCart className="h-16 w-16 text-gray-400" />}
           title="No shopping list yet"
-          message="Add meals to your weekly plan to automatically generate a shopping list with all the ingredients you need!"
+          message="Add meals to your weekly plan to automatically generate a shopping list."
         />
       )}
 
       {!loading && !error && shoppingList.length > 0 && (
         <div>
           {/* Progress Bar */}
-          <Card className="mb-6">
-            <CardContent className="pt-6">
+          <div>
+            <div className="pt-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium text-gray-700">
                   Progress: {purchasedCount} of {totalCount} items
@@ -124,9 +121,9 @@ export function ShoppingList(): React.JSX.Element {
                     onClick={clearCompleted}
                     variant="ghost"
                     size="sm"
-                    className="text-red-600 hover:text-red-700"
+                    className="text-red-600 hover:text-red-700 border rounded-md"
                   >
-                    Clear Completed
+                    Complete
                   </Button>
                 )}
               </div>
@@ -134,8 +131,8 @@ export function ShoppingList(): React.JSX.Element {
                 value={(purchasedCount / totalCount) * 100}
                 className="h-3"
               />
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
           {/* Shopping List Items */}
           <div className="space-y-2">
@@ -180,20 +177,6 @@ export function ShoppingList(): React.JSX.Element {
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          {/* Summary */}
-          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <div className="flex items-start">
-              <Info className="w-5 h-5 text-blue-600 mt-0.5" />
-              <div className="ml-3">
-                <p className="text-sm text-blue-800">
-                  <strong>Tip:</strong> This shopping list was generated using
-                  parallel API calls (Promise.all) to fetch all recipe details
-                  simultaneously for better performance.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       )}

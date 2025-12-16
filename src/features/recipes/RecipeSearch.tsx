@@ -101,7 +101,7 @@ export function RecipeSearch({
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
-              placeholder="Search for recipes (e.g., chicken, pasta)..."
+              placeholder="Search for recipes..."
             />
           </div>
 
