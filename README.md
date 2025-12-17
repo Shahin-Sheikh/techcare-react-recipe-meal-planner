@@ -281,8 +281,6 @@ I chose React's Context API over external state management libraries (Redux, Zus
 
 ## ⏱️ Time Breakdown
 
-## ⏱️ Time Breakdown
-
 | Task                                      | Time Spent   |
 | ----------------------------------------- | ------------ |
 | Project setup & configuration             | 2 hours      |
@@ -437,18 +435,6 @@ The application uses the [TheMealDB API](https://www.themealdb.com/api.php) (fre
 - Firefox (latest 2 versions)
 - Safari (latest 2 versions)
 - Mobile browsers (iOS Safari, Chrome Mobile)
-
----
-
-## Contributing
-
-This is a personal project created for a technical assessment. However, suggestions and feedback are welcome!
-
----
-
-## License
-
-This project is created for educational and assessment purposes.
 
 ---
 
